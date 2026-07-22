@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Status
+from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel, Field
 from typing import List, Optional
 from app.services.triage_engine import TriageEngine
@@ -31,6 +31,6 @@ async def assess_emergency(request: TriageRequest):
         return {"success": True, "data": result}
     except Exception as e:
         raise HTTPException(
-            status_code=Status.HTTP_500_INTERNAL_SERVER_ERROR,
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Triage evaluation error: {str(e)}"
         )

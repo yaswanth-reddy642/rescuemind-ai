@@ -1,4 +1,4 @@
-from fastapi import APIRouter, UploadFile, File, Form, HTTPException, Status
+from fastapi import APIRouter, UploadFile, File, Form, HTTPException, status
 from pydantic import BaseModel
 from typing import Optional
 from app.services.audio_engine import AudioEngine
@@ -15,7 +15,7 @@ async def process_transcript_text(request: TextSpeechRequest):
         return {"success": True, "data": result}
     except Exception as e:
         raise HTTPException(
-            status_code=Status.HTTP_500_INTERNAL_SERVER_ERROR,
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Speech processing error: {str(e)}"
         )
 
@@ -29,6 +29,6 @@ async def process_audio_file(file: UploadFile = File(...), prompt_text: Optional
         return {"success": True, "audio_filename": file.filename, "data": result}
     except Exception as e:
         raise HTTPException(
-            status_code=Status.HTTP_500_INTERNAL_SERVER_ERROR,
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Audio file extraction error: {str(e)}"
         )

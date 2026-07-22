@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Status
+from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel, Field
 from typing import List, Optional, Dict
 from app.services.sos_service import SOSService
@@ -43,6 +43,6 @@ async def trigger_emergency_sos(request: SOSRequest):
         return {"success": True, "data": result}
     except Exception as e:
         raise HTTPException(
-            status_code=Status.HTTP_500_INTERNAL_SERVER_ERROR,
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"SOS dispatch failure: {str(e)}"
         )

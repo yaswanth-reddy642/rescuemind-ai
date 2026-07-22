@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Status
+from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, EmailStr, Field
 from typing import List, Optional
 import jwt

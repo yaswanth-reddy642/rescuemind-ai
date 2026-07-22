@@ -1,4 +1,4 @@
-from fastapi import APIRouter, HTTPException, Status
+from fastapi import APIRouter, HTTPException
 from app.services.disaster_engine import DisasterEngine
 
 router = APIRouter(prefix="/api/disaster", tags=["Disaster Response"])
